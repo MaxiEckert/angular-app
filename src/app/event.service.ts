@@ -2,28 +2,42 @@ import { Injectable } from '@angular/core';
 import { Event } from "./event";
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
+  private url = 'http://www.metaweather.com/api/location';  // URL to web api
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'secure': 'false'
+    })
+  };
+
   events: Event[] = [
-    { id: 1, name: 'Sophia\'s Geburtstag' },
-    { id: 2, name: 'Maxi\'s Geburtstag' },
-    { id: 3, name: 'Jahrestag' }
+    { id: 2487956, name: 'San Francisco' },
+    { id: 44418, name: 'London' },
   ];
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private messageService: MessageService) { }
+
+    private log(message: string) {
+      this.messageService.add(`EventService: ${message}`)
+    }
 
   getEvents(): Observable<Event[]> {
-    this.messageService.add('EventService: fetched events')
+    this.log(`fetched events`)
     return of(this.events);
   }
 
   getEvent(id: number): Observable<Event> {
-    this.messageService.add(`EventService: fetched event id=${id}`)
-    return of(this.events.find(event => event.id === id));
+    this.log(`fetched hero id=${id}`);
+    return of(this.events.find(event => event.id === id))
   }
 }
