@@ -32,4 +32,4 @@ jobs:
         app-name: 'angular-web-app'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_cfffc45b9099486195c70ce9d91b0c23 }}
-        package: .
+        package: dist/angular-app
