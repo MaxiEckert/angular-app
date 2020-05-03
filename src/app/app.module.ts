@@ -11,6 +11,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { HttpClientModule }    from '@angular/common/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
+import { MatListModule } from "@angular/material/list";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +32,13 @@ import { HttpClientModule }    from '@angular/common/http';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

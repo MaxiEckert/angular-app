@@ -13,7 +13,7 @@ import { EventService } from "../event.service";
 })
 export class EventDetailComponent implements OnInit {
 
-  event: Event;
+  @Input() event: Event;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +22,9 @@ export class EventDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getEvent();
+    if (!this.event) {
+      this.getEvent();
+    }
   }
 
   getEvent(): void {

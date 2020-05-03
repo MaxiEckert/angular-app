@@ -19,8 +19,10 @@ export class EventService {
   };
 
   events: Event[] = [
-    { id: 2487956, name: 'San Francisco' },
-    { id: 44418, name: 'London' },
+    { id: 1, name: 'Thailand', date: "2019", text: "Urlaub in Thailand", imageUrl: "https://storagemaxieckert.blob.core.windows.net/images/thailand.jpg" },
+    { id: 2, name: 'Rom', date: "2019", text: "Urlaub in Rom", imageUrl: "https://storagemaxieckert.blob.core.windows.net/images/rom.jpg" },
+    { id: 3, name: 'Tegernsee', date: "2019", text: "Ausflug zum Tegernsee", imageUrl: "https://storagemaxieckert.blob.core.windows.net/images/tegernsee.jpg" },
+    { id: 4, name: 'Karibik', date: "2020", text: "Urlaub in den USA & Karibik", imageUrl: "https://storagemaxieckert.blob.core.windows.net/images/karibik.jpg" },
   ];
 
   constructor(

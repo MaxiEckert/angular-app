@@ -1,12 +1,18 @@
-<div *ngIf="event">
+<mat-card *ngIf="event" class="event-card">
+  <mat-card-header>
+    <div mat-card-avatar class="event-header-image" [ngStyle]="{'background-image': 'url(' + event.imageUrl + ')'}"></div>
+    <mat-card-title>{{event.name}}</mat-card-title>
+    <mat-card-subtitle>{{event.date}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{event.imageUrl}}" alt="Image">
+  <mat-card-content>
+    <p>{{event.text}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a routerLink="/detail/{{event.id}}">
+      <button mat-button>Mehr...</button>
+    </a>
+  </mat-card-actions>
+</mat-card>
 
-    <h2>{{event.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{event.id}}</div>
-    <div>
-      <label>name:
-        <input [(ngModel)]="event.name" placeholder="name"/>
-      </label>
-    </div>
-  
-  </div>
-  <button (click)="goBack()">go back</button>
+  <!-- <button (click)="goBack()">go back</button> -->
